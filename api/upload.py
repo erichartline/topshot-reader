@@ -3,8 +3,7 @@ import cgi
 import csv
 
 class handler(BaseHTTPRequestHandler):
-
-def do_POST(self):
+    def do_POST(self):
          # Parse the form data posted
         form = cgi.FieldStorage(
             fp=self.rfile, 
@@ -12,6 +11,7 @@ def do_POST(self):
             environ={'REQUEST_METHOD':'POST',
                      'CONTENT_TYPE':self.headers['Content-Type'],
                      })
+
         # Begin the response
         self.send_response(200)
         self.end_headers()
